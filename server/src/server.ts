@@ -1,17 +1,22 @@
-import fastify from 'fastify';
+import fastify from 'fastify'
+import { PrismaClient } from '@prisma/client'
 
-const app = fastify();
+const app = fastify()
+const prisma = new PrismaClient()
 
 // HTTP Method: GET, POST, PUT, PATCH, DELETE
 
-app.post('/hello', () => {
-  return 'Hello world!';
+app.get('/users', async () => {
+  const users = await prisma.user.findMany()
+  return users
 })
 
 // API RESTful
 
-app.listen({
-  port: 3333,
-}).then(() => {
-  console.log('🚀 listening on port 3333');
-})
+app
+  .listen({
+    port: 3333,
+  })
+  .then(() => {
+    console.log('🚀 listening on port 3333')
+  })

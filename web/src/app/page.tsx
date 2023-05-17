@@ -1,0 +1,11 @@
+
+// TypeScript + JSX = ESX
+// JSX = JavaScript + XML
+
+export default function Home() {
+  return (
+    <div className='h-screen bg-zinc-900 text-zinc-50 p-6'>
+      <h1 className='text-4xl font-bold'>Sua Cápsula do Tempo</h1>
+    </div>
+  )
+}
